@@ -1,9 +1,7 @@
 package com.example.differentApiCalls.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.differentApiCalls.dyo.User;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PersonController {
@@ -18,5 +16,9 @@ public class PersonController {
     @GetMapping("/get2/{name}")
     public String message1(@PathVariable String name){
         return "Hii "+name+" from BridgeLabz";
+    }
+    @GetMapping("/get3")
+    public String message2(@RequestBody User user){
+        return "Hii "+user.firstName+" "+user.lastName+" from BridgeLabz";
     }
 }
